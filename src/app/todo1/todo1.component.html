@@ -1,0 +1,48 @@
+
+
+
+<h4>Add New Task</h4>
+<form #addForm="ngForm" (submit) = "handleSubmit(addForm)" >
+    <input type="text" ngModel name="task">
+    <button>Add Task</button>
+</form>
+<hr>
+<button (click)="handleSave()">Save All Tasks</button>
+<hr>
+<div>
+    <label for="search"></label>
+    Search:
+    <input type="text" #searchText (keyup)="handleSearch(searchText.value)">
+</div>
+
+
+<hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td style="border: 2px solid;">
+                Task 
+                <button  class="sortButton" [class.isSorted]="sort == SortEnum.ASC" (click)="handleSort(SortEnum.ASC)">&uarr;</button>
+                <button class="sortButton" [class.isSorted]="sort == SortEnum.DESC" (click)="handleSort(SortEnum.DESC)">&#8595;</button>
+            </td>
+            <td style="border: 2px solid;">Operations</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of tasks" [hidden]="!t.isVisible">
+        <td style="border: 2px solid;">
+           <span *ngIf="!t.isUpdated">
+                {{t.name}}
+            </span>
+           <span *ngIf="t.isUpdated">
+               <input type="text" name="newTask" #newTask value={{t.name}}>
+                <button (click)="handleFinishUpdate(t.name,newTask.value)">Save</button>
+           </span> 
+        </td>    
+        <td style="border: 2px solid;">
+            <button (click)="handleRemove(t.name)">Remove</button>
+            <button (click)="handleUpdate(t)">Update</button>
+        </td>    
+        </tr>
+    </tbody>
+</table>
