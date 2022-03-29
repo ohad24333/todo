@@ -1,1 +1,12 @@
 <app-todo1></app-todo1>
+<app-father></app-father>
+
+<div *ngFor="let t of tagsArr">
+    <app-tags [tag] = "t"></app-tags>
+</div>
+
+<app-temperature (clickEvent)="handlePlaceNumber($event)"></app-temperature>
+<div>
+    The Temo Is : {{temp}}
+</div>
+
