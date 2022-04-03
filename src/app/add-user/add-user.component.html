@@ -1,0 +1,10 @@
+<form #addUserForm="ngForm" (submit)="handleAddUserSubmit(addUserForm)">
+
+    <p>
+        <input #userName ngModel name="userName" type="text" placeholder="User Name">
+    </p>
+    <p>
+        <input #userEmail ngModel name="userEmail" type="text" placeholder="User Email">
+    </p>
+    <button> Add User</button>
+</form>

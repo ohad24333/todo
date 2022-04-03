@@ -1,0 +1,14 @@
+<p>forms-validations works!</p>
+
+<form #myForm="ngForm" (submit)="handleSubmit(myForm)">
+    <p>
+        <input type="text" ngModel name="name" #name required minLength=5>
+    </p>
+    <p>
+        <input type="text" ngModel name="age" #age required minlength=2>
+    </p>
+
+    <button>Submit</button>
+</form>
+
+<p *ngIf="isValidForm" style="color: red;"> inserts is invalid</p>

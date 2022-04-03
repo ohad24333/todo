@@ -1,0 +1,9 @@
+<h1>Furniture Component</h1>
+<hr>
+<p>Baying Date: <span> {{furniture.bayingDate | date:"dd/MM/yyyy"}}</span></p>
+<p>Description: <span>{{furniture.description | uppercase}}</span></p>
+<p>Cost: <span>{{furniture.cost | currency : 'NIS' : '₪' : '3.2-2'}}</span></p>
+<p>Plastic: <span>{{furniture.plasticPerc | percent}}</span></p>
+
+<p>Number * 50000: <span>{{furniture.cost | btcusd}}</span></p>
+
